@@ -9,6 +9,9 @@ export class CreateUserService {
 
   async execute(data: CreateUserDto) {
     const passwordHash = await bcrypt.hash(data.password, 10);
+    const userExists = await this.userRepository.findByEmail(data.email);
+    if (userExists) throw new Error('User already exists');
+
     await this.userRepository.create({
       ...data,
       password: passwordHash,
