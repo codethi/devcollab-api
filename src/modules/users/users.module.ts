@@ -4,11 +4,17 @@ import { CreateUserController } from './useCases/create/create-user.controller';
 import { CreateUserService } from './useCases/create/create-user.service';
 import { UserRepository } from './repositories/user.repository';
 import { PrismaUserRepository } from './repositories/implementations/prisma-user.repository';
-import { FindAllController } from './useCases/findAll/find-all.controller';
-import { FindAllService } from './useCases/findAll/find-all.service';
+import { FindAllUsersController } from './useCases/findAll/find-all-users.controller';
+import { FindAllUsersService } from './useCases/findAll/find-all-users.service';
+import { FindByIdUserController } from './useCases/findById/find-by-id-user.controller';
+import { FindByIdUserService } from './useCases/findById/find-by-id-user.service';
 
 @Module({
-  controllers: [CreateUserController, FindAllController],
+  controllers: [
+    CreateUserController,
+    FindAllUsersController,
+    FindByIdUserController,
+  ],
   providers: [
     PrismaService,
     {
@@ -16,7 +22,8 @@ import { FindAllService } from './useCases/findAll/find-all.service';
       useClass: PrismaUserRepository,
     },
     CreateUserService,
-    FindAllService,
+    FindAllUsersService,
+    FindByIdUserService,
   ],
 })
 export class UsersModule {}

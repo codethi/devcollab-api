@@ -3,7 +3,7 @@ import { UserRepository } from '../../repositories/user.repository';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class FindAllService {
+export class FindAllUsersService {
   constructor(private userRepository: UserRepository) {}
 
   async execute(): Promise<Omit<Users, 'password'>[]> {
