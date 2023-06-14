@@ -25,5 +25,6 @@ import { FindByIdUserService } from './useCases/findById/find-by-id-user.service
     FindAllUsersService,
     FindByIdUserService,
   ],
+  exports: [UserRepository],
 })
 export class UsersModule {}
