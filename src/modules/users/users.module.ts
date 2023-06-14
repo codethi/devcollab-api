@@ -8,12 +8,14 @@ import { FindAllUsersController } from './useCases/findAll/find-all-users.contro
 import { FindAllUsersService } from './useCases/findAll/find-all-users.service';
 import { FindByIdUserController } from './useCases/findById/find-by-id-user.controller';
 import { FindByIdUserService } from './useCases/findById/find-by-id-user.service';
+import { UserLogged } from './useCases/userLogged/user-logged.controller';
 
 @Module({
   controllers: [
     CreateUserController,
     FindAllUsersController,
     FindByIdUserController,
+    UserLogged,
   ],
   providers: [
     PrismaService,
